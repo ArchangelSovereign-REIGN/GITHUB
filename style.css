@@ -1,64 +1,41 @@
-* {
-  box-sizing: border-box;
-  }
-
 body {
-margin: 0;
-font-family: Arial, sans-serif;
-color: #f4f1e8;
-background: linear-gradient(180deg, #070707, #0c0a0a);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #f5f5f5;
+    background: radial-gradient(circle at top, #1a1a1a, #050505 70%);
+    overflow-x: hidden;
+    position: relative;
 }
-
-.hero {
-text-align: center;
-padding: 80px 20px;
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    height: 900px;
+    transform: translate(-50%, -50%);
+    background: url("https://i.imgur.com/8QfQK9R.png") no-repeat center;
+    background-size: contain;
+    opacity: 0.08;
+    z-index: 0;
+    animation: wingFloat 8s ease-in-out infinite;
+    pointer-events: none;
 }
-
-.crest {
-width: 120px;
-height: 120px;
-margin: auto;
-border-radius: 50%;
-border: 3px solid gold;
-display: flex;
-align-items: center;
-justify-content: center;
+@keyframes wingFloat {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.06;
+    }
+    50% {
+        transform: translate(-50%, -52%) scale(1.05) rotate(1deg);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.06;
+    }
 }
-
-.crest span {
-font-size: 2rem;
-color: gold;
-}
-
-h1 {
-color: gold;
-}
-
-button {
-padding: 12px 24px;
-border-radius: 20px;
-border: none;
-background: gold;
-cursor: pointer;
-font-weight: bold;
-}
-
-button:hover {
-transform: scale(1.05);
-}
-
-.content-block {
-padding: 30px;
-margin: 20px;
-}
-
-.features {
-display: flex;
-gap: 20px;
-}
-
-.feature-card {
-background: #111;
-padding: 20px;
-border-radius: 10px;
+.hero, main, footer {
+    position: relative;
+    z-index: 2;
 }
